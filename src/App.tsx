@@ -1,15 +1,17 @@
-// import { useState } from 'react'
-// import Popular from './components/Popular'
 import SearchBar from './components/SearchBar'
-import './App.css'
-import Recipe from './components/Recipe'
+import { Typography } from '@mui/material'
 
 function App() {
   return (
     <div className="App">
-      <h1>Recipe Search</h1>
-      <SearchBar />
-      {/* <Recipe /> */}
+        <Typography 
+          variant='h1' 
+          component='div' 
+          color='#000'
+          className='header'>
+            Recipe Search
+        </Typography>
+        <SearchBar />
     </div>
   )
 }

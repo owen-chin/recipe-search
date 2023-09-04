@@ -1,12 +1,13 @@
 import TextField from '@mui/material/TextField/TextField'
-import Recipe from './Recipe'
+import Recipes from './Recipes'
 import { useEffect, useState } from 'react'
+import { Box, Container } from '@mui/material'
 
 function SearchBar() {
   const [input, setInput] = useState('')
   const [recipes, setRecipes] = useState([])
   const [query, setQuery] = useState('')
-
+  
   const APP_ID = "e142bde9"
   const APP_KEY = "067a7e536b287fd4420063e9ab504029"
 
@@ -39,27 +40,22 @@ function SearchBar() {
 
   
   return (
-    <div className='search-box'>
-      <TextField
-        id="standard-basic"
-        type="text"
-        placeholder="Search a Recipe"
-        className="search-bar"
-        onInput={(e) => setInput((e.target as HTMLInputElement).value)}
-        onKeyDown={handleKeyPress}
-        value={input}
-      />
-      {recipes.map(recipe => (
-        <Recipe
-        key={recipe.recipe.uri}
-        title={recipe.recipe.label}
-        calories={recipe.recipe.calories}
-        image={recipe.recipe.image}
-        ingredients={recipe.recipe.ingredients}
-        url={recipe.recipe.url}
+    <Container>
+      <Box className='search-box'>
+        <TextField
+          id="standard-basic"
+          type="text"
+          placeholder="Search a Recipe"
+          className="search-bar"
+          onInput={(e) => setInput((e.target as HTMLInputElement).value)}
+          onKeyDown={handleKeyPress}
+          value={input}
         />
-      ))}
-    </div>
+      </Box>
+      <Box>
+       {<Recipes recipeList={recipes} />}  
+      </Box>
+    </Container>
   )
 }
 
