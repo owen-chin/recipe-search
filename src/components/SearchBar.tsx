@@ -8,12 +8,13 @@ function SearchBar() {
   const [recipes, setRecipes] = useState([])
   const [query, setQuery] = useState('')
   
-  const APP_ID = "e142bde9"
-  const APP_KEY = "067a7e536b287fd4420063e9ab504029"
+  const APP_ID = import.meta.env.VITE_API_ID
+  const APP_KEY = import.meta.env.VITE_API_KEY
+  const random = false
 
   const getRecipes = async () => {
     try {
-      const response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&random=true&q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`)
+      const response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&random=${random}&q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`)
       const data = await response.json()
       setRecipes(data.hits)
       console.log(data.hits)
