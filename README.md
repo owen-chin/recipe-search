@@ -2,7 +2,7 @@
 
 - Typescript
 - React
- - useState and useEffect
+  - useState and useEffect
 - Edamam Recipe Search API
 - Material-UI
 - Firebase
